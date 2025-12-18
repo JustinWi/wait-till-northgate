@@ -6,7 +6,7 @@
     <title>Wait Until Northgate</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,6 +16,7 @@
 
         body {
             font-family: 'Oswald', sans-serif;
+            font-weight: 300;
             background-color: #ffffff;
             color: #000000;
             line-height: 1.6;
@@ -24,56 +25,145 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
-        /* Header / Logo */
+        /* Header */
         .header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
-        .logo {
-            max-width: 180px;
-            height: auto;
-            margin-bottom: 40px;
-        }
-
-        /* Main Title */
+        /* Main Title - animated word by word */
         .main-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
             margin-bottom: 20px;
             color: #000000;
+            min-height: 2.8rem;
+        }
+
+        .main-title .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .main-title .word.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Subtitle with typing effect */
+        .subtitle-container {
+            min-height: 4rem;
+            margin-bottom: 30px;
         }
 
         .subtitle {
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-size: 3rem;
+            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 60px;
+            letter-spacing: 3px;
             color: #000000;
-            border-bottom: 4px solid #000000;
+            display: inline;
+        }
+
+        .cursor {
             display: inline-block;
-            padding-bottom: 10px;
+            width: 3px;
+            height: 3rem;
+            background-color: #000000;
+            margin-left: 4px;
+            vertical-align: middle;
+            opacity: 0;
+        }
+
+        .cursor.blink {
+            animation: blink 0.5s step-end 4;
+        }
+
+        .cursor.typing {
+            opacity: 1;
+            animation: blink 0.6s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Here's Why section */
+        .heres-why {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .heres-why.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .modeled-after {
+            font-size: 1rem;
+            color: #999999;
+            margin-bottom: 40px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .modeled-after.visible {
+            opacity: 1;
+        }
+
+        .modeled-after a {
+            color: #999999;
+            text-decoration: underline;
+        }
+
+        .modeled-after a:hover {
+            color: #666666;
+        }
+
+        /* Intro paragraphs */
+        .intro-section {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .intro-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .intro-paragraph {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #333333;
         }
 
         /* Reasons Section */
         .reasons-section {
             margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .reasons-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-            color: #000000;
-            text-align: center;
+        .reasons-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .reasons-list {
@@ -82,46 +172,70 @@
         }
 
         .reasons-list li {
-            font-size: 1.4rem;
-            font-weight: 500;
-            padding: 20px 0;
-            border-bottom: 1px solid #e0e0e0;
+            font-size: 1.2rem;
+            font-weight: 300;
+            padding: 18px 0;
+            border-bottom: 1px solid #eeeeee;
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
 
         .reasons-list li:last-child {
             border-bottom: none;
         }
 
-        .reasons-list li::before {
-            content: "→";
+        .reason-text {
+            display: flex;
+            align-items: center;
+        }
+
+        .reason-text::before {
+            content: "•";
             margin-right: 15px;
-            font-weight: 700;
-        }
-
-        .reasons-list a {
+            font-size: 1.5rem;
             color: #000000;
-            text-decoration: none;
-            transition: all 0.3s ease;
         }
 
-        .reasons-list a:hover {
-            text-decoration: underline;
-            opacity: 0.7;
+        .source-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border: 1px solid #cccccc;
+            border-radius: 50%;
+            color: #999999;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 400;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .source-icon:hover {
+            border-color: #000000;
+            color: #000000;
+            background-color: #f5f5f5;
         }
 
         /* Form Section */
         .form-section {
-            background-color: #f5f5f5;
+            background-color: #fafafa;
             padding: 40px;
             margin-bottom: 60px;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .form-section.visible {
+            opacity: 1;
         }
 
         .form-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
+            font-size: 1.5rem;
+            font-weight: 400;
             letter-spacing: 1px;
             margin-bottom: 30px;
             color: #000000;
@@ -142,14 +256,19 @@
         /* Participating Schools Section */
         .schools-section {
             margin-bottom: 60px;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .schools-section.visible {
+            opacity: 1;
         }
 
         .schools-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
+            font-size: 1.5rem;
+            font-weight: 400;
             letter-spacing: 1px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             color: #000000;
             text-align: center;
         }
@@ -161,41 +280,50 @@
         }
 
         .schools-list li {
-            font-size: 1.3rem;
-            font-weight: 400;
-            padding: 15px 0;
-            border-bottom: 1px solid #e0e0e0;
+            font-size: 1.1rem;
+            font-weight: 300;
+            padding: 12px 0;
+            color: #333333;
         }
 
         .schools-list li:first-child {
-            font-weight: 600;
-        }
-
-        .schools-list li:last-child {
-            border-bottom: none;
+            font-weight: 400;
         }
 
         /* Footer */
         .footer {
             text-align: center;
             padding: 40px 20px;
-            border-top: 2px solid #000000;
-            font-size: 0.9rem;
-            color: #666666;
+            border-top: 1px solid #eeeeee;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #999999;
+        }
+
+        .footer a {
+            color: #999999;
+        }
+
+        .footer a:hover {
+            color: #000000;
         }
 
         /* Responsive */
         @media (max-width: 600px) {
             .main-title {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
 
             .subtitle {
-                font-size: 2.5rem;
+                font-size: 2rem;
+            }
+
+            .cursor {
+                height: 2rem;
             }
 
             .reasons-list li {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             .form-section {
@@ -206,40 +334,65 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header with Logo -->
+        <!-- Header -->
         <header class="header">
-            <img src="https://jagdads.com/wp-content/uploads/2024/08/Artboard-1.webp" alt="Jag Dads Logo" class="logo">
+            <h1 class="main-title" id="mainTitle"></h1>
             
-            <h1 class="main-title">When should you get your child a smartphone?</h1>
-            <h2 class="subtitle">Wait Until Northgate</h2>
+            <div class="subtitle-container">
+                <span class="subtitle" id="subtitle"></span><span class="cursor" id="cursor"></span>
+            </div>
+
+            <p class="heres-why" id="heresWhy">Here's why.</p>
+            <p class="modeled-after" id="modeledAfter">Modeled after <a href="https://www.waituntil8th.org/" target="_blank" rel="noopener">Wait Until 8th</a></p>
         </header>
 
+        <!-- Intro Paragraphs -->
+        <section class="intro-section" id="introSection">
+            <p class="intro-paragraph">
+                Smartphones deliver an endless stream of dopamine-triggering notifications and content, creating stimulus addiction patterns in developing brains that can affect focus, sleep, and emotional regulation for years to come.
+            </p>
+            <p class="intro-paragraph">
+                Social media platforms amplify harmful social comparisons, exposing young minds to curated highlight reels that fuel anxiety, depression, and a distorted sense of self-worth during their most vulnerable years.
+            </p>
+        </section>
+
         <!-- Top 5 Reasons Section -->
-        <section class="reasons-section">
-            <h3 class="reasons-title">Top 5 Reasons to Wait</h3>
+        <section class="reasons-section" id="reasonsSection">
             <ul class="reasons-list">
-                <li><a href="https://www.apa.org/topics/social-media-internet/health-advisory-adolescent-social-media-use" target="_blank" rel="noopener">Smartphones harm developing adolescent brains</a></li>
-                <li><a href="https://www.sleepfoundation.org/teens-and-sleep/screen-time-and-sleep" target="_blank" rel="noopener">Screen time disrupts healthy sleep patterns</a></li>
-                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7366948/" target="_blank" rel="noopener">Social media increases anxiety and depression</a></li>
-                <li><a href="https://www.commonsensemedia.org/research/the-common-sense-census-media-use-by-tweens-and-teens" target="_blank" rel="noopener">Reduces face-to-face social skill development</a></li>
-                <li><a href="https://www.waituntil8th.org/research" target="_blank" rel="noopener">Academic performance improves without phones</a></li>
+                <li>
+                    <span class="reason-text">Smartphones harm developing adolescent brains</span>
+                    <a href="https://www.apa.org/topics/social-media-internet/health-advisory-adolescent-social-media-use" target="_blank" rel="noopener" class="source-icon" title="View source">↗</a>
+                </li>
+                <li>
+                    <span class="reason-text">Screen time disrupts healthy sleep patterns</span>
+                    <a href="https://www.sleepfoundation.org/teens-and-sleep/screen-time-and-sleep" target="_blank" rel="noopener" class="source-icon" title="View source">↗</a>
+                </li>
+                <li>
+                    <span class="reason-text">Social media increases anxiety and depression</span>
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7366948/" target="_blank" rel="noopener" class="source-icon" title="View source">↗</a>
+                </li>
+                <li>
+                    <span class="reason-text">Reduces face-to-face social skill development</span>
+                    <a href="https://www.commonsensemedia.org/research/the-common-sense-census-media-use-by-tweens-and-teens" target="_blank" rel="noopener" class="source-icon" title="View source">↗</a>
+                </li>
+                <li>
+                    <span class="reason-text">Academic performance improves without phones</span>
+                    <a href="https://www.waituntil8th.org/research" target="_blank" rel="noopener" class="source-icon" title="View source">↗</a>
+                </li>
             </ul>
         </section>
 
         <!-- Google Form Section -->
-        <section class="form-section">
+        <section class="form-section" id="formSection">
             <h3 class="form-title">Take the Pledge</h3>
             <div class="form-container">
                 <!-- Replace the src URL below with your actual Google Form embed URL -->
                 <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
-            <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #666;">
-                Join other Walnut Creek families committed to waiting until Northgate High School.
-            </p>
         </section>
 
         <!-- Participating Schools Section -->
-        <section class="schools-section">
+        <section class="schools-section" id="schoolsSection">
             <h3 class="schools-title">Participating Schools</h3>
             <ul class="schools-list">
                 <li>Walnut Acres Elementary</li>
@@ -252,7 +405,88 @@
     <!-- Footer -->
     <footer class="footer">
         <p>A community initiative for Walnut Creek families</p>
-        <p style="margin-top: 10px;">In partnership with <a href="https://jagdads.com" target="_blank" style="color: #000;">Jag Dads</a></p>
     </footer>
+
+    <script>
+        // Animation sequence
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTitle = document.getElementById('mainTitle');
+            const subtitle = document.getElementById('subtitle');
+            const cursor = document.getElementById('cursor');
+            const heresWhy = document.getElementById('heresWhy');
+            const modeledAfter = document.getElementById('modeledAfter');
+            const introSection = document.getElementById('introSection');
+            const reasonsSection = document.getElementById('reasonsSection');
+            const formSection = document.getElementById('formSection');
+            const schoolsSection = document.getElementById('schoolsSection');
+
+            const titleWords = ['When', 'should', 'your', 'child', 'get', 'a', 'smartphone?'];
+            const subtitleText = 'WAIT UNTIL NORTHGATE';
+
+            // Step 1: Animate title word by word
+            let wordIndex = 0;
+            
+            // Create word spans
+            titleWords.forEach((word, i) => {
+                const span = document.createElement('span');
+                span.className = 'word';
+                span.textContent = word + ' ';
+                mainTitle.appendChild(span);
+            });
+
+            const words = mainTitle.querySelectorAll('.word');
+
+            function showNextWord() {
+                if (wordIndex < words.length) {
+                    words[wordIndex].classList.add('visible');
+                    wordIndex++;
+                    setTimeout(showNextWord, 200);
+                } else {
+                    // Step 2: Show cursor and blink twice
+                    setTimeout(startCursorBlink, 400);
+                }
+            }
+
+            function startCursorBlink() {
+                cursor.classList.add('blink');
+                // After 2 blinks (4 cycles at 0.5s = 2s)
+                setTimeout(() => {
+                    cursor.classList.remove('blink');
+                    cursor.classList.add('typing');
+                    typeSubtitle();
+                }, 2000);
+            }
+
+            // Step 3: Type subtitle letter by letter
+            let charIndex = 0;
+            function typeSubtitle() {
+                if (charIndex < subtitleText.length) {
+                    subtitle.textContent += subtitleText[charIndex];
+                    charIndex++;
+                    setTimeout(typeSubtitle, 60);
+                } else {
+                    // Done typing, hide cursor after a moment
+                    setTimeout(() => {
+                        cursor.classList.remove('typing');
+                        cursor.style.opacity = '0';
+                        showRemainingContent();
+                    }, 500);
+                }
+            }
+
+            // Step 4: Animate in remaining content
+            function showRemainingContent() {
+                setTimeout(() => heresWhy.classList.add('visible'), 200);
+                setTimeout(() => modeledAfter.classList.add('visible'), 500);
+                setTimeout(() => introSection.classList.add('visible'), 800);
+                setTimeout(() => reasonsSection.classList.add('visible'), 1100);
+                setTimeout(() => formSection.classList.add('visible'), 1400);
+                setTimeout(() => schoolsSection.classList.add('visible'), 1700);
+            }
+
+            // Start animation
+            setTimeout(showNextWord, 500);
+        });
+    </script>
 </body>
 </html>
