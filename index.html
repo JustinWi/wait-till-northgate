@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wait Until Northgate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header / Logo */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 40px;
+        }
+
+        /* Main Title */
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        .subtitle {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 60px;
+            color: #000000;
+            border-bottom: 4px solid #000000;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        /* Reasons Section */
+        .reasons-section {
+            margin-bottom: 60px;
+        }
+
+        .reasons-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            color: #000000;
+            text-align: center;
+        }
+
+        .reasons-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reasons-list li {
+            font-size: 1.4rem;
+            font-weight: 500;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+
+        .reasons-list li:last-child {
+            border-bottom: none;
+        }
+
+        .reasons-list li::before {
+            content: "→";
+            margin-right: 15px;
+            font-weight: 700;
+        }
+
+        .reasons-list a {
+            color: #000000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .reasons-list a:hover {
+            text-decoration: underline;
+            opacity: 0.7;
+        }
+
+        /* Form Section */
+        .form-section {
+            background-color: #f5f5f5;
+            padding: 40px;
+            margin-bottom: 60px;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            color: #000000;
+            text-align: center;
+        }
+
+        .form-container {
+            width: 100%;
+            min-height: 600px;
+        }
+
+        .form-container iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        /* Participating Schools Section */
+        .schools-section {
+            margin-bottom: 60px;
+        }
+
+        .schools-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            color: #000000;
+            text-align: center;
+        }
+
+        .schools-list {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .schools-list li {
+            font-size: 1.3rem;
+            font-weight: 400;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .schools-list li:first-child {
+            font-weight: 600;
+        }
+
+        .schools-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 2px solid #000000;
+            font-size: 0.9rem;
+            color: #666666;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .main-title {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 2.5rem;
+            }
+
+            .reasons-list li {
+                font-size: 1.1rem;
+            }
+
+            .form-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Logo -->
+        <header class="header">
+            <img src="https://jagdads.com/wp-content/uploads/2024/08/Artboard-1.webp" alt="Jag Dads Logo" class="logo">
+            
+            <h1 class="main-title">When should you get your child a smartphone?</h1>
+            <h2 class="subtitle">Wait Until Northgate</h2>
+        </header>
+
+        <!-- Top 5 Reasons Section -->
+        <section class="reasons-section">
+            <h3 class="reasons-title">Top 5 Reasons to Wait</h3>
+            <ul class="reasons-list">
+                <li><a href="https://www.apa.org/topics/social-media-internet/health-advisory-adolescent-social-media-use" target="_blank" rel="noopener">Smartphones harm developing adolescent brains</a></li>
+                <li><a href="https://www.sleepfoundation.org/teens-and-sleep/screen-time-and-sleep" target="_blank" rel="noopener">Screen time disrupts healthy sleep patterns</a></li>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7366948/" target="_blank" rel="noopener">Social media increases anxiety and depression</a></li>
+                <li><a href="https://www.commonsensemedia.org/research/the-common-sense-census-media-use-by-tweens-and-teens" target="_blank" rel="noopener">Reduces face-to-face social skill development</a></li>
+                <li><a href="https://www.waituntil8th.org/research" target="_blank" rel="noopener">Academic performance improves without phones</a></li>
+            </ul>
+        </section>
+
+        <!-- Google Form Section -->
+        <section class="form-section">
+            <h3 class="form-title">Take the Pledge</h3>
+            <div class="form-container">
+                <!-- Replace the src URL below with your actual Google Form embed URL -->
+                <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+            <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #666;">
+                Join other Walnut Creek families committed to waiting until Northgate High School.
+            </p>
+        </section>
+
+        <!-- Participating Schools Section -->
+        <section class="schools-section">
+            <h3 class="schools-title">Participating Schools</h3>
+            <ul class="schools-list">
+                <li>Walnut Acres Elementary</li>
+                <li>Bancroft Elementary</li>
+                <li>Valle Verde Elementary</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>A community initiative for Walnut Creek families</p>
+        <p style="margin-top: 10px;">In partnership with <a href="https://jagdads.com" target="_blank" style="color: #000;">Jag Dads</a></p>
+    </footer>
+</body>
+</html>
